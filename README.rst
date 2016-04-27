@@ -9,7 +9,6 @@ How it works
 Es tracta d'un fòrum amb funcionalitat simple. 
 
 Els comentaris utilitzen plone.app.discussion, i per tant @@discussion-settings té varies opcions que poden afectar el Forum, per exemple:
-
 - Mostra imatge de perfil
 - Habilitar enviament de notificacions per correu
 
