@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+            xmlns:tal="http://xml.zope.org/namespaces/tal"
+            xmlns:metal="http://xml.zope.org/namespaces/metal"
+            xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+            lang="en"
+            metal:use-macro="context/main_template/macros/master"
+            i18n:domain="genweb.simpleforum">
+    <body>
+        <metal:block fill-slot="main">  
+            <tal:posts tal:define="
+                               posts view/posts;
+                               showCommenterImage view/show_commenter_image;
+                               Batch python:modules['Products.CMFPlone'].Batch;
+                               b_size python:10;
+                               b_start python:0;
+                               b_start request/b_start | b_start;
+                               batch python:Batch(posts, b_size, int(b_start), orphan=1);"
+                   tal:condition="posts"
+                   >
+                <h1 class='documentFirstHeading' tal:content='context/title'>titol</h1>
+                <ul id='post-list'>
+
+                    <li>
+                        <div class='row'>
+                            <div class='span8 post-title'>
+                                <h3 i18n:translate="">Subject</h3>
+                            </div>
+                            <div class='span4 post-metada' >
+                                <div class='span6 post-comments'>
+                                    <h3 i18n:translate="">Comments</h3>
+                                </div>
+                                <div class='span6 post-author'>
+                                    <h3 i18n:translate="">Modified</h3>
+                                </div>
+                            </div>
+                        </div>          
+                    </li>
+
+                    <li tal:repeat='post batch'>
+                        <div class='row'>
+                            <div class='span8 post-title'>
+                                <img    tal:condition="showCommenterImage"
+                                        class='post-list-portrait' src='{post/portrait}' alt='{post/author}' 
+                                        tal:attributes='src post/portrait; 
+                                                     alt post/author'>
+                                <a  href='{url}' 
+                                    tal:attributes='href post/url' 
+                                    tal:content='post/title'>
+                                    {title}
+                                </a>
+                            </div>
+                            <div class='span4 post-metada' >
+                                <div class='span6 post-comments'>
+                                    <p tal:content='post/comments'>{post/comments}</p>
+                                </div>
+                                <div class='span6 post-author'>
+                                    <p tal:content='post/modificationDate'>{post/modificationDate}</p>
+                                    <p tal:content='post/author'>{post/author}</p>
+                                </div>
+                            </div>
+                            
+                        </div>          
+                    </li>
+
+                </ul>
+                <div metal:use-macro="here/batch_macros/macros/navigation" />
+            </tal:posts>
+
+        </metal:block>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<html   xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        lang="ca"
+        metal:use-macro="context/main_template/macros/master"
+        i18n:domain="genweb.simpleforum">
+    <body>
+        <metal:block fill-slot="main">
+            <tal:def define="   data view/data; 
+                                showCommenterImage view/show_commenter_image;">
+                <div class='discussion'>
+                    <div class='comment'>
+                        <h1 class='documentFirstHeading' tal:content='context/title'>{context/title}</h1>
+                        <div tal:condition="showCommenterImage" class='commentImage'>
+                            <img    class='defaultuserimg' src='{data/portrait}' alt='' 
+                                    tal:attributes='src data/portrait'>
+                        </div>
+                        <div class='documentByLine'>
+                            <a  href='#' 
+                                tal:define="creator context/Creator; 
+                                            mtool context/@@plone_tools/membership;
+                                            author python:mtool.getMemberInfo(creator)"
+                                tal:content='author/fullname'>{author/fullname}</a>
+                            <div class="commentDate" tal:content='data/modificationDate'>{data/modificationDate}</div>
+                        </div>
+                        <div class='commentBody' tal:content="structure data/text">{data/text}</div>
+                    </div>
+                </div>
+                    
+            </tal:def>
+
+        </metal:block>
+
+    </body>
+</html>
+

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+    name="genweb.simpleforum"
+    interface="genweb.simpleforum.interfaces.IGenwebsimpleforumLayer"
+  />
+</layers>

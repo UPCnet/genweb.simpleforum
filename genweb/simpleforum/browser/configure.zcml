@@ -1,0 +1,12 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="genweb.simpleforum">
+
+    <!--   ++resource++genweb.simpleforum.stylesheets/genweb_simpleforum.css -->
+    <browser:resourceDirectory
+      name="genweb.simpleforum.stylesheets"
+      directory="stylesheets"
+      />     
+
+</configure>
