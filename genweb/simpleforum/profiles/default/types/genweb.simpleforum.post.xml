@@ -14,7 +14,6 @@
     <property name="allow_discussion">True</property>
     <property name="default_view_fallback">False</property>
     <property name="add_permission">cmf.AddPortalContent</property>
-    <property name="klass">plone.dexterity.content.Container</property>
     <property name="schema">genweb.simpleforum.content.post.IPost</property>
     <property name="model_file"></property>
     <property name="schema_policy">dexterity</property>
