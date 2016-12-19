@@ -31,7 +31,7 @@ setup(name='genweb.simpleforum',
           'setuptools',
           'five.grok',
           'plone.app.dexterity [grok]',
-          'collective.dexteritytextindexer == 2.0.1',
+          'collective.dexteritytextindexer',
       ],
       entry_points="""
       # -*- Entry points: -*-
