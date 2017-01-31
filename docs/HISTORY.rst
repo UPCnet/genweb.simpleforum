@@ -1,10 +1,10 @@
 Changelog
 =========
-1.1 (unreleased)
+1.1 (2017-01-31)
 ----------------
 
-- Nothing changed yet.
-
+* removed fixed version in package [Roberto Diaz]
+* remove plone.formwidget.multifile==1.1 requirement [oscar.albareda]
 
 1.0 (2016-05-12)
 ----------------
